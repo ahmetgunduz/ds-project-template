@@ -1,0 +1,22 @@
+{
+  "method": "random",
+  "name": "sweep",
+  "metric": {
+    "goal": "maximize",
+    "name": "val_f1"
+  },
+  "parameters": {
+    "estimator": {
+      "values": [
+        "lgbm",
+        "xgboost"
+      ]
+    },
+    "target_metric": {
+      "values": [
+        "f1",
+        "accuracy"
+      ]
+    }
+  }
+}

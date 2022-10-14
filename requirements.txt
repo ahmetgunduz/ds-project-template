@@ -1,0 +1,31 @@
+# if a library has fix or feature in a specific branch that is not yet installable as a version through pip, we install it through git
+# aws is used by private dataset download scripts
+awscli==1.22.101
+attrdict==2.0.1
+boto3==1.21.46
+Cython==0.29.28
+dataclasses_json==0.5.6
+dill==0.3.5.1
+flytekit>=0.20.0
+inquirer==2.9.1
+librosa==0.9.1
+matplotlib==3.5.1
+numpy==1.21
+pandas==1.4.2
+pingouin==0.5.1
+pre-commit==2.18.1
+pydub==0.25.1
+pyloudnorm==0.1.0
+pysndfx==0.3.6
+python-dotenv==0.20.0
+pyyaml==5.4.1
+rich==12.3.0
+scipy==1.8.0
+scikit-learn==1.0.2
+tqdm==4.64.0
+types-PyYAML==6.0.6
+umap-learn==0.5.1
+wandb==0.13.3
+typer==0.6.1
+FLAML==1.0.12
+msgpack==msgpack-1.0.4

@@ -1,0 +1,17 @@
+# run: conda env create --file conda.yaml
+name: catchjoe
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - defaults
+dependencies:
+  # we choose a python version not too new for compatibility with older implementations
+  # but not too old for compatibility with newer implementations
+  # 3.8 is a good balance bethween these two
+  # we can upgrade this later if we want to, as long as it doesn't break anything
+  - python=3.8.8
+  - pip=22.0.4
+  # all other dependencies are installed through pip
+  - pip:
+    - -r requirements.txt
