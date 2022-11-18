@@ -4,7 +4,8 @@
 # into it. It also creates a new git repository and commits the template files.
 
 # Usage: make_project.sh <project_name>
-PROJECT_NAME = $1
+# read the project name from the command line
+PROJECT_NAME=$1
 
 # Check that the project name was given
 if [ $# -eq 0 ]; then
@@ -14,16 +15,22 @@ fi
 
 
 # Create the project directory in parent directory
-mkdir ../ $PROJECT_NAME
+# check if there is a directory with the same name
+if [ -d ../$PROJECT_NAME ]; then
+    echo "Directory already exists"
+    exit 1
+fi
+
+mkdir ../$PROJECT_NAME
 
 # Copy the template files into the project directory
-cp -r ./* ../ $PROJECT_NAME/
-cp .gitignore ../ $PROJECT_NAME/
-cp .pre-commit-config.yaml ../ $PROJECT_NAME/
+cp -r ./* ../$PROJECT_NAME/
+cp .gitignore ../$PROJECT_NAME/
+cp .pre-commit-config.yaml ../$PROJECT_NAME/
 
 
 # Change to the project directory
-cd ../ $PROJECT_NAME/
+cd ../$PROJECT_NAME/
 
 # Initialize a new git repository
 git init
@@ -47,12 +54,22 @@ git checkout -b bugfix/first-bugfix
 git checkout -b release/first-release
 
 
-# push 
-git push --set-upstream origin develop
 
 
-# checkout to develop
-git checkout develop
+echo "To start working on the project, run the following commands:"
+echo "git checkout develop"
+echo "git checkout -b feature/<feature_name>"
+echo "git checkout -b bugfix/<bugfix_name>"
+echo "git checkout -b release/<release_name>"
+echo "git checkout -b hotfix/<hotfix_name>"
+echo "git checkout -b support/<support_name>"
+echo "git checkout -b documentation/<documentation_name>"
+echo "git checkout -b <other_name>"
+
+cd ../$PROJECT_NAME/
+
+echo "Changed to the project directory"
+
 
 # Finish
-echo "Project created successfully!"
+echo "Project created successfully! Happy coding!"
