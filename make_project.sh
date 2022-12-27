@@ -21,6 +21,7 @@ if [ -d ../$PROJECT_NAME ]; then
     exit 1
 fi
 
+
 mkdir ../$PROJECT_NAME
 
 # Copy the template files into the project directory
@@ -31,6 +32,8 @@ cp .pre-commit-config.yaml ../$PROJECT_NAME/
 
 # Change to the project directory
 cd ../$PROJECT_NAME/
+
+sed -i "s/name: catchjoe/name: $PROJECT_NAME/g" ./conda.yaml
 
 # Initialize a new git repository
 git init
@@ -44,27 +47,12 @@ git commit -m "Initial commit"
 # Create a new branch for development
 git checkout -b develop
 
-# Create a new branch for the first feature
-git checkout -b feature/first-feature
-
-# Create a new branch for the first bugfix
-git checkout -b bugfix/first-bugfix
-
-# Create a new branch for the first release
-git checkout -b release/first-release
 
 
 
 
 echo "To start working on the project, run the following commands:"
 echo "git checkout develop"
-echo "git checkout -b feature/<feature_name>"
-echo "git checkout -b bugfix/<bugfix_name>"
-echo "git checkout -b release/<release_name>"
-echo "git checkout -b hotfix/<hotfix_name>"
-echo "git checkout -b support/<support_name>"
-echo "git checkout -b documentation/<documentation_name>"
-echo "git checkout -b <other_name>"
 
 cd ../$PROJECT_NAME/
 
