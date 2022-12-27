@@ -20,7 +20,7 @@
 /.vscode/
 /checkpoints/
 /result/
-**/data/
+/data/**/*.csv
 /tests/**/*.json
 /secrets.env
 ZeroDuration.txt
